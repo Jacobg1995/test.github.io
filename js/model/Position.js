@@ -30,8 +30,8 @@ export class Position {
     }
 
     static toLatLng(map, x, y) {
-        x = ((x - RS_OFFSET_X) * RS_TILE_WIDTH_PX) + (RS_TILE_WIDTH_PX / 4);
-        y = (MAP_HEIGHT_PX - ((y - RS_OFFSET_Y) * RS_TILE_HEIGHT_PX));
+        x = x;
+        y = y;
         return map.unproject(L.point(x, y), map.getMaxZoom());
     }
 
