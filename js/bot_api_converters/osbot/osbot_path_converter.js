@@ -29,8 +29,9 @@ export class OSBotPathConverter extends OSBotConverter {
     toRaw(path) {
         var output = "";
         for (var i = 0; i < path.positions.length; i++) {
-            let newPosition = Region.fromPosition(path.positions[i].position);
-            output += `${newPosition.x},${newPosition.y},${newPosition.z}\n`;
+            let newPosition = Region.fromPosition(path.positions[i]);
+            console.info("New Region Position: " + newPosition);
+            output += `${path.positions[i].x},${path.positions[i].y},${path.positions[i].z}\n`;
         }
         return output;
     }
