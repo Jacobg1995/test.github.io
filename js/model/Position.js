@@ -35,6 +35,12 @@ export class Position {
         return map.unproject(L.point(x, y), map.getMaxZoom());
     }
 
+    static toLatLng(x, y) {
+        x = ((x - RS_OFFSET_X) * RS_TILE_WIDTH_PX) + (RS_TILE_WIDTH_PX / 4);
+        y = (MAP_HEIGHT_PX - ((y - RS_OFFSET_Y) * RS_TILE_HEIGHT_PX));
+        console.info("To LatLng X and Y" + x + "," + y);
+    }
+
     getDistance(position) {
         var diffX = Math.abs(this.x - position.x);
         var diffY = Math.abs(this.y - position.y);
