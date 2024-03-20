@@ -14,7 +14,7 @@ export class Path {
     }
 
     add(position) {
-        this.positions.push(Region.fromPosition(position));
+        this.positions.push(position);
         var rectangle = position.toLeaflet(this.map);
         this.featureGroup.addLayer(rectangle);
         this.rectangles.push(rectangle);

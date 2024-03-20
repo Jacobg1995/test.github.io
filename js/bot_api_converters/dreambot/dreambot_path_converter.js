@@ -1,6 +1,7 @@
 'use strict';
 
 import {Position} from '../../model/Position.js';
+import {Region} from '../../model/Region.js';
 import {Path} from '../../model/Path.js';
 import {OSBotPathConverter} from '../osbot/osbot_path_converter.js';
 
@@ -28,7 +29,7 @@ export class DreamBotPathConverter extends OSBotPathConverter {
         while ((match = re.exec(text))) {
             var values = match[1].split(",");
             var z = values.length == 2 ? 0 : values[2];
-            path.add(new Position(values[0], values[1], z));
+            path.add(Region.fromPosition(new Position(values[0], values[1], z)));
         }
     }
 }
