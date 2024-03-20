@@ -1,6 +1,7 @@
 'use strict';
 
 import {Position} from '../../model/Position.js';
+import {Region} from '../../model/Region.js';
 import {Path} from '../../model/Path.js';
 import {OSBotConverter} from './osbot_converter.js';
 
@@ -28,7 +29,8 @@ export class OSBotPathConverter extends OSBotConverter {
     toRaw(path) {
         var output = "";
         for (var i = 0; i < path.positions.length; i++) {
-            output += `${path.positions[i].x},${path.positions[i].y},${path.positions[i].z}\n`;
+            let newPosition = Region.fromPosition(path.positions[i].position);
+            output += `${newPosition.x},${newPosition.y},${newPosition.z}\n`;
         }
         return output;
     }
