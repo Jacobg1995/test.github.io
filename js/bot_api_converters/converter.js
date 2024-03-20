@@ -14,6 +14,8 @@ export class Converter {
                 return this.toJavaArraysAsList(drawable);
             case "Raw":
                 return this.toRaw(drawable);
+            case "RegionPoint":
+                return this.toRegionPoint(drawable);
         }
     }
     
@@ -26,4 +28,6 @@ export class Converter {
     toJavaList(drawable) {}
     
     toJavaArraysAsList(drawable) {}
+
+    toRegionPoint(drawable) {}
 }

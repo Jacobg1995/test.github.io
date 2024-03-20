@@ -3,6 +3,7 @@
 import {Area} from '../../model/Area.js';
 import {Areas} from '../../model/Areas.js';
 import {Position} from '../../model/Position.js';
+import {Region} from '../../model/Region.js';
 import {OSBotAreasConverter} from '../osbot/osbot_areas_converter.js';
 
 export class RuneLiteAreasConverter extends OSBotAreasConverter {
@@ -49,5 +50,9 @@ export class RuneLiteAreasConverter extends OSBotAreasConverter {
 
 
         return `new ${this.javaArea}(${start}, ${end}, ${Math.abs(area.startPosition.x - area.endPosition.x) + 1}, ${Math.abs(area.startPosition.y - area.endPosition.y) + 1}, ${area.endPosition.z})`;
+    }
+
+    toRegionPoint(position) {
+        return new Region.fromPosition(position);
     }
 }
