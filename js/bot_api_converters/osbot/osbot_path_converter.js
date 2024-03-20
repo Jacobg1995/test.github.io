@@ -30,9 +30,7 @@ export class OSBotPathConverter extends OSBotConverter {
         var output = "";
         for (var i = 0; i < path.positions.length; i++) {
             let newPosition = Region.fromPosition(path.positions[i]).toPosition();
-            let newPosition2 = Position.toLatLng(path.positions[i].x, path.positions[i].y);
             console.info("New Region Position: ", newPosition);
-            console.info("New Region Position2 : ", newPosition2);
             output += `${path.positions[i].x},${path.positions[i].y},${path.positions[i].z}\n`;
         }
         return output;
