@@ -1,6 +1,7 @@
 'use strict';
 
 import {Position} from './Position.js';
+import {Region} from './Region.js';
 
 export class Path {
 
@@ -13,7 +14,7 @@ export class Path {
     }
 
     add(position) {
-        this.positions.push(position);
+        this.positions.push(Region.fromPosition(position));
         var rectangle = position.toLeaflet(this.map);
         this.featureGroup.addLayer(rectangle);
         this.rectangles.push(rectangle);
